@@ -1,18 +1,18 @@
 import { exec } from 'child_process';
 import { Observable } from 'rxjs';
 
-export abstract class Cli {
+export class Cli {
     private _cwd: string;
 
-    constructor(cwd: string) {
-        this._cwd = cwd
+    constructor(cwd?: string) {
+        this._cwd = cwd || '.';
     }
 
-    protected cwd(cwd: string) {
+    public cwd(cwd: string) {
         this._cwd = cwd;
     }
 
-    protected run(command: string): Observable<string> {
+    public run(command: string): Observable<string> {
         return new Observable(obs => {
             const process = exec(command, { cwd: this._cwd })
             process.stdout.on('data', data => {

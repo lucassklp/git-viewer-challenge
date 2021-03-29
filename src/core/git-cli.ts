@@ -1,21 +1,23 @@
 import { Observable } from 'rxjs';
 import { Cli } from './cli';
 
-export class GitCli extends Cli {
+export class GitCli {
 
-    constructor(cwd: string){
-        super(cwd)
+    private cli: Cli;
+
+    constructor(){
+        this.cli = new Cli();
     }
 
     clone(remote: string, relativePath: string): Observable<string> {
-        return this.run(`git clone ${remote} ${relativePath} --quiet`)
+        return this.cli.run(`git clone ${remote} ${relativePath} --quiet`)
     }
 
     log(args?: string): Observable<string> {
-        return this.run(`git log ${args || ''}`)
+        return this.cli.run(`git log ${args || ''}`)
     }
 
     public open(directory: string){
-        return super.cwd(directory);
+        return this.cli.cwd(directory);
     }
 }
