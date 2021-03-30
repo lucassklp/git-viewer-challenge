@@ -15,13 +15,15 @@ export class Cli {
     public run(command: string): Observable<string> {
         return new Observable(obs => {
             const process = exec(command, { cwd: this._cwd })
+            let output = '';
             process.stdout.on('data', data => {
-                obs.next(data.toString())
+                output += data.toString();
             });
             process.stderr.on('data', data => {
                 obs.error(data.toString())
             });
             process.on('close', (code) => {
+                obs.next(output);
                 obs.complete();
             })
         })

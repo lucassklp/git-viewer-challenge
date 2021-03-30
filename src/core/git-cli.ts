@@ -9,8 +9,12 @@ export class GitCli {
         this.cli = new Cli();
     }
 
-    clone(remote: string, relativePath: string): Observable<string> {
-        return this.cli.run(`git clone ${remote} ${relativePath} --quiet`)
+    clone(remote: string, relativePath: string): Observable<void> {
+        return new Observable(obs => {
+            this.cli.run(`git clone ${remote} ${relativePath} --quiet`).subscribe({
+                complete: () => obs.next()
+            })
+        });
     }
 
     log(args?: string): Observable<string> {
