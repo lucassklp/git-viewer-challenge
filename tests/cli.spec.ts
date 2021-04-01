@@ -28,4 +28,12 @@ describe('Cli Tests', () => {
             expect(err).not.null
         })
     });
+
+    it("should change cwd to current folder", () => {
+        const cli = new Cli();
+        cli.cwd(__dirname)
+        cli.run('pwd').subscribe(output => {
+            expect(output).equal(__dirname + EOL)
+        })
+    });
 });

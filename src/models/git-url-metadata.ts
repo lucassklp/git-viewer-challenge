@@ -1,4 +1,4 @@
-export type UrlMetadata = {
+export type GitUrlMetadata = {
     owner: string;
     repository: string;
 }

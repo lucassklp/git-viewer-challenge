@@ -25,7 +25,7 @@ export class Cli {
             process.on('close', (code) => {
                 obs.next(output);
                 obs.complete();
-            })
+            });
         })
     }
 }

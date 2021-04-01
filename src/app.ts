@@ -3,13 +3,13 @@ import { param, query, validationResult } from 'express-validator';
 import { GitViewer } from './core/git-viewer';
 import { GitHubCliViewer } from './core/github-cli-viewer';
 import { githubRegex } from './core/github-url-metadata';
-import { GithubViewer } from './core/github-viewer';
+import { GitHubApiViewer } from './core/github-api-viewer';
 
 const app = express();
 const port = 3000;
 
 app.get('/',
-    query('url').matches(githubRegex()),
+    query('url').matches(githubRegex),
     query('page').isNumeric(),
     query('pageSize').isNumeric(),
   (req, res) => {
@@ -22,7 +22,7 @@ app.get('/',
     const page = parseInt(req.query.page as string, 10);
     const pageSize = parseInt(req.query.pageSize as string, 10);
 
-    let viewer: GitViewer = new GithubViewer();
+    let viewer: GitViewer = new GitHubApiViewer();
     viewer.getCommits(url, page, pageSize).subscribe(commits => {
         res.send(commits)
     }, err => {
@@ -30,8 +30,8 @@ app.get('/',
       viewer.getCommits(url, page, pageSize).subscribe(commits => {
         res.send(commits)
       }, error => {
-        res.send('error')
-      })
+        res.status(500).send([err.message, error])
+      });
     });
 })
 
