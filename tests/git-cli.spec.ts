@@ -31,7 +31,7 @@ describe('Git Cli Tests', () => {
             cli.log().subscribe(log => {
                 expect(log).to.be.not.null;
                 deleteFolderIfExist(path);
-            })
-        })
+            });
+        });
     });
 });

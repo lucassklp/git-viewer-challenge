@@ -24,13 +24,13 @@ app.get('/',
 
     let viewer: GitViewer = new GitHubApiViewer();
     viewer.getCommits(url, page, pageSize).subscribe(commits => {
-        res.send(commits)
+        res.send(commits);
     }, err => {
       viewer = new GitHubCliViewer();
       viewer.getCommits(url, page, pageSize).subscribe(commits => {
-        res.send(commits)
+        res.send(commits);
       }, error => {
-        res.status(500).send([err.message, error])
+        res.status(500).send([err.message, error]);
       });
     });
 })

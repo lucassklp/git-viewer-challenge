@@ -14,7 +14,7 @@ export class Cli {
 
     public run(command: string): Observable<string> {
         return new Observable(obs => {
-            const process = exec(command, { cwd: this._cwd })
+            const process = exec(command, { cwd: this._cwd });
             let output = '';
             process.stdout.on('data', data => {
                 output += data.toString();

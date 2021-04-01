@@ -30,7 +30,7 @@ export class GitHubCliViewer implements GitViewer {
                         author: groups[2],
                         message: groups[4],
                         date: new Date(parseInt(groups[3], 10) * 1000)
-                    }
+                    };
                 });
             }));
         }));
