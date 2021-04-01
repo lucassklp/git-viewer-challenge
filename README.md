@@ -34,7 +34,7 @@ localhost:3000?url=https://github.com/lucassklp/Rx.Http1&page=1&pageSize=10
 
 The parameters are passed by *query param* which are
 
-**url**: The GitHub poject's URL
+**url**: The GitHub project's URL
 
 **page**: the number of page
 
