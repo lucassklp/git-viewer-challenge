@@ -29,7 +29,7 @@ npm run lint
 In order to see the WebApi working, all you need to do is a *GET Request* like this:
 
 ```
-localhost:3000?url=https://github.com/lucassklp/Rx.Http1&page=1&pageSize=10
+localhost:3000?url=https://github.com/lucassklp/Rx.Http&page=0&pageSize=10
 ```
 
 The parameters are passed by *query param* which are
