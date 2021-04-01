@@ -5,7 +5,7 @@ import { GitHubApiViewer } from '../src/core/github-api-viewer';
 import { zip } from 'rxjs';
 
 describe('GitHub Cli Viewer Tests', () => {
-    it("should get 1 item from pagination", () => {
+    it('should get 1 item from pagination', () => {
         should_get_1_item(new GitHubCliViewer());
     });
     it('should throw error invalid git url', () => {
@@ -14,7 +14,7 @@ describe('GitHub Cli Viewer Tests', () => {
 });
 
 describe('GitHub Api Viewer Tests', () => {
-    it("should get 1 item from pagination", () => {
+    it('should get 1 item from pagination', () => {
         should_get_1_item(new GitHubApiViewer());
     });
     it('should throw error invalid git url', () => {
@@ -23,7 +23,7 @@ describe('GitHub Api Viewer Tests', () => {
 });
 
 describe('GitHub Viewer Tests', () => {
-    it("Api and Cli must to return same result", () => {
+    it('Api and Cli must to return same result', () => {
         const cli = new GitHubCliViewer();
         const api = new GitHubApiViewer();
         const url = 'https://github.com/lucassklp/Rx.Http';
@@ -46,7 +46,7 @@ const should_get_1_item = (viewer: GitViewer) => {
             expect(commits.length).equal(1);
         });
     }
-}
+};
 
 // tslint:disable-next-line: variable-name
 const should_throw_error_invalid_git_url = (viewer: GitViewer) => {
@@ -55,4 +55,4 @@ const should_throw_error_invalid_git_url = (viewer: GitViewer) => {
             expect(err).not.null;
         });
     }
-}
+};

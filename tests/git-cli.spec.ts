@@ -11,7 +11,7 @@ function deleteFolderIfExist(path: string){
 }
 
 describe('Git Cli Tests', () => {
-    it("should clone the repository to current folder", () => {
+    it('should clone the repository to current folder', () => {
         const cli = new GitCli();
         const path = __dirname + uuid();
         deleteFolderIfExist(path);
@@ -22,7 +22,7 @@ describe('Git Cli Tests', () => {
         });
     });
 
-    it("should clone and log a repository", () => {
+    it('should clone and log a repository', () => {
         const cli = new GitCli();
         const path = __dirname + '/' + uuid();
         deleteFolderIfExist(path);

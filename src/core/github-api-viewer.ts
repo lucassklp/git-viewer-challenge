@@ -1,10 +1,9 @@
-import { from, Observable } from "rxjs";
-import { Commit } from "../models/commit";
-import { GitViewer } from "./git-viewer";
+import { from, Observable } from 'rxjs';
+import { Commit } from '../models/commit';
+import { GitViewer } from './git-viewer';
 import axios from 'axios'
-import { map } from "rxjs/operators";
+import { map } from 'rxjs/operators';
 import { extract } from './github-url-metadata';
-
 export class GitHubApiViewer implements GitViewer {
     getCommits(url: string, page: number, pageSize: number): Observable<Commit[]> {
         const metadata = extract(url);
