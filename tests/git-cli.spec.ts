@@ -26,7 +26,7 @@ describe('Git Cli Tests', () => {
         const cli = new GitCli();
         const path = __dirname + '/' + uuid();
         deleteFolderIfExist(path);
-        cli.clone('https://github.com/lucassklp/Rx.Http.git', path).subscribe(output => {
+        cli.clone('https://github.com/lucassklp/Rx.Http.git', path).subscribe(_ => {
             cli.open(path);
             cli.log().subscribe(log => {
                 expect(log).to.be.not.null;

@@ -16,7 +16,7 @@ describe('Cli Tests', () => {
         cli.run('echo error>&2').subscribe(_ => {
             throw new Error();
         }, err => {
-            expect(err).equal('error' + EOL)
+            expect(err).equal('error' + EOL);
         });
     });
 
@@ -25,15 +25,15 @@ describe('Cli Tests', () => {
         cli.run('this_command_do_not_exists').subscribe(_ => {
             throw new Error();
         }, err => {
-            expect(err).not.null
+            expect(err).not.null;
         })
     });
 
     it('should change cwd to current folder', () => {
         const cli = new Cli();
-        cli.cwd(__dirname)
+        cli.cwd(__dirname);
         cli.run('pwd').subscribe(output => {
-            expect(output).equal(__dirname + EOL)
+            expect(output).equal(__dirname + EOL);
         });
     });
 });

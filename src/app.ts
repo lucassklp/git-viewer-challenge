@@ -33,7 +33,7 @@ app.get('/',
         res.status(500).send([err.message, error]);
       });
     });
-})
+});
 
 // tslint:disable-next-line: no-console
 app.listen(port, () => console.log(`Server is listening on ${port}`));

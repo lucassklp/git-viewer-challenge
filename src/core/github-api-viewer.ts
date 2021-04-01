@@ -1,7 +1,7 @@
 import { from, Observable } from 'rxjs';
 import { Commit } from '../models/commit';
 import { GitViewer } from './git-viewer';
-import axios from 'axios'
+import axios from 'axios';
 import { map } from 'rxjs/operators';
 import { extract } from './github-url-metadata';
 export class GitHubApiViewer implements GitViewer {
@@ -19,7 +19,7 @@ export class GitHubApiViewer implements GitViewer {
                     author: node.commit.committer.name,
                     message: node.commit.message,
                     date: new Date(node.commit.committer.date)
-                }
+                };
             });
         }));
     }

@@ -20,9 +20,9 @@ export class Cli {
                 output += data.toString();
             });
             process.stderr.on('data', data => {
-                obs.error(data.toString())
+                obs.error(data.toString());
             });
-            process.on('close', (code) => {
+            process.on('close', _ => {
                 obs.next(output);
                 obs.complete();
             });

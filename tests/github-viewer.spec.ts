@@ -4,6 +4,24 @@ import { GitHubCliViewer } from '../src/core/github-cli-viewer';
 import { GitHubApiViewer } from '../src/core/github-api-viewer';
 import { zip } from 'rxjs';
 
+// tslint:disable-next-line: variable-name
+const should_get_1_item = (viewer: GitViewer) => {
+    return () => {
+        viewer.getCommits('https://github.com/lucassklp/Rx.Http', 0, 1).subscribe(commits => {
+            expect(commits.length).equal(1);
+        });
+    };
+};
+
+// tslint:disable-next-line: variable-name
+const should_throw_error_invalid_git_url = (viewer: GitViewer) => {
+    return () => {
+        viewer.getCommits('https://github.com/not_a_repo_path', 0, 1).subscribe(_ => null, err => {
+            expect(err).not.null;
+        });
+    };
+};
+
 describe('GitHub Cli Viewer Tests', () => {
     it('should get 1 item from pagination', () => {
         should_get_1_item(new GitHubCliViewer());
@@ -37,22 +55,3 @@ describe('GitHub Viewer Tests', () => {
         });
     });
 });
-
-
-// tslint:disable-next-line: variable-name
-const should_get_1_item = (viewer: GitViewer) => {
-    return () => {
-        viewer.getCommits('https://github.com/lucassklp/Rx.Http', 0, 1).subscribe(commits => {
-            expect(commits.length).equal(1);
-        });
-    }
-};
-
-// tslint:disable-next-line: variable-name
-const should_throw_error_invalid_git_url = (viewer: GitViewer) => {
-    return () => {
-        viewer.getCommits('https://github.com/not_a_repo_path', 0, 1).subscribe(_ => null, err => {
-            expect(err).not.null;
-        });
-    }
-};

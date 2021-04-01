@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { Commit } from '../models/commit';
 import { GitCli } from './git-cli';
 import { GitViewer } from './git-viewer';
-import { v4 as uuid } from 'uuid'
+import { v4 as uuid } from 'uuid';
 import { map, switchMap } from 'rxjs/operators';
 import rimraf from 'rimraf';
 import os from 'path';
