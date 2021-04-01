@@ -10,11 +10,11 @@ export class GitCli {
     }
 
     clone(remote: string, relativePath: string): Observable<string> {
-        return this.cli.run(`git clone ${remote} ${relativePath} --quiet`)
+        return this.cli.run(`git clone ${remote} ${relativePath} --quiet`);
     }
 
     log(args?: string): Observable<string> {
-        return this.cli.run(`git log ${args || ''}`)
+        return this.cli.run(`git log ${args || ''}`);
     }
 
     public open(directory: string){

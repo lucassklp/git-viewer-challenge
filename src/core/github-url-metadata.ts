@@ -1,4 +1,4 @@
-import { GitUrlMetadata } from "../models/git-url-metadata";
+import { GitUrlMetadata } from '../models/git-url-metadata';
 
 export const githubRegex = /^((http[s]?|git)(:\/\/|@))?([^\/:]+)[\/:]([^\/:]+)\/(.+)$/s;
 

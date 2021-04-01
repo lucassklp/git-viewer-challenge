@@ -12,5 +12,5 @@
       "src/tests",
       "./node_modules/",
       "./dist/"
-    ],    
+    ]
 }

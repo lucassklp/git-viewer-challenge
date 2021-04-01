@@ -1,12 +1,12 @@
 import { expect } from 'chai';
-import rimraf from "rimraf";
+import rimraf from 'rimraf';
 import { GitCli } from '../src/core/git-cli';
-import fs from "fs"
-import {v4 as uuid} from 'uuid'
+import fs from 'fs';
+import {v4 as uuid} from 'uuid';
 
 function deleteFolderIfExist(path: string){
     if(fs.existsSync(path)){
-        rimraf.sync(path)
+        rimraf.sync(path);
     }
 }
 
@@ -15,11 +15,11 @@ describe('Git Cli Tests', () => {
         const cli = new GitCli();
         const path = __dirname + uuid();
         deleteFolderIfExist(path);
-        cli.clone('https://github.com/lucassklp/Rx.Http.git', path).subscribe(output => {
-            const hasDirectory = fs.existsSync(path)
+        cli.clone('https://github.com/lucassklp/Rx.Http.git', path).subscribe(_ => {
+            const hasDirectory = fs.existsSync(path);
             expect(hasDirectory).to.be.true;
             deleteFolderIfExist(path);
-        })
+        });
     });
 
     it("should clone and log a repository", () => {

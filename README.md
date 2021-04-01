@@ -5,7 +5,6 @@ The goal for this project is to retrieve a paged list of commits given a github 
 
 ## Assumptions
 1. I must rely on **Git Cli**. This is important because if I didn't have this constraint I'd choose something safer like [nodegit](https://github.com/nodegit/nodegit). Relying on a **Cli** is potencially dangerous when you have to expose anything to web due to [RCE Vulnerability](https://www.sciencedirect.com/topics/computer-science/remote-code-execution). In order to mitigate it, I added params validator but it's not enough.
-
 2. I must integrate with [GitHub Rest API](https://docs.github.com/en/rest) and use **Local Git** as fallback.
 
 ## How to run

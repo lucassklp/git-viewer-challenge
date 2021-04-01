@@ -6,7 +6,7 @@ import { zip } from 'rxjs';
 
 describe('GitHub Cli Viewer Tests', () => {
     it("should get 1 item from pagination", () => {
-        should_get_1_item(new GitHubCliViewer())
+        should_get_1_item(new GitHubCliViewer());
     });
     it('should throw error invalid git url', () => {
         should_throw_error_invalid_git_url(new GitHubApiViewer());
@@ -15,7 +15,7 @@ describe('GitHub Cli Viewer Tests', () => {
 
 describe('GitHub Api Viewer Tests', () => {
     it("should get 1 item from pagination", () => {
-        should_get_1_item(new GitHubApiViewer())
+        should_get_1_item(new GitHubApiViewer());
     });
     it('should throw error invalid git url', () => {
         should_throw_error_invalid_git_url(new GitHubApiViewer());
@@ -34,7 +34,7 @@ describe('GitHub Viewer Tests', () => {
             const apiRes = res[1];
 
             expect(cliRes).to.deep.equal(apiRes);
-        })
+        });
     });
 });
 
