@@ -24,6 +24,22 @@ npm run test
 npm run lint
 ```
 
+## Making a HTTP Request
+
+In order to see the WebApi working, all you need to do is a *GET Request* like this:
+
+```
+localhost:3000?url=https://github.com/lucassklp/Rx.Http1&page=1&pageSize=10
+```
+
+The parameters are passed by *query param* which are
+
+**url**: The GitHub poject's URL
+
+**page**: the number of page
+
+**pageSize**: The amount of commit to display
+
 ## Other considerations
 1. As can be checked [here](https://mirrors.edge.kernel.org/pub/software/scm/git/docs/git-clone.html) the ```git clone``` command sends the progress to the **error stream** That's why I just added ```--quiet``` flag to this command in order to avoid error on stream
 2. Pages are zero-based numbering (starts by 0 until n-1).
