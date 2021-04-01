@@ -26,7 +26,7 @@ describe('Cli Tests', () => {
             throw new Error();
         }, err => {
             expect(err).not.null;
-        })
+        });
     });
 
     it('should change cwd to current folder', () => {

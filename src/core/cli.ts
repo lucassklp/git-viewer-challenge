@@ -26,6 +26,6 @@ export class Cli {
                 obs.next(output);
                 obs.complete();
             });
-        })
+        });
     }
 }
